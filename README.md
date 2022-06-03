@@ -4,7 +4,7 @@ Convert TOML ballistic settings file to profiles.xml for ATN X-Sight 4K Scope.
 
 ## Why
 
-Manually editing `profiles.xml` files exported by ATN X-Sight 4K Scope is [painful](https://atnowners.com/thread/3520/atn-sight-profiles-editing-guideline].
+Manually editing `profiles.xml` files exported by ATN X-Sight 4K Scope is [painful](https://atnowners.com/thread/3520/atn-sight-profiles-editing-guideline).
 
 Since ATN only allows you to keep 6 profiles loaded in the scope at a time, if you reload for several calibers, you soon end up having to manage several profile files. Keeping them updated by importing them into the scope and editing there via the menu is a hassle.
 
