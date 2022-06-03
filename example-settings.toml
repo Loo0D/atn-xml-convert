@@ -1,0 +1,93 @@
+sight_height_in = false     # xml default is mm
+velocity_fps = false        # xml default is m/s
+zero_distance_yds = false   # xml default is meters
+
+[one]
+profile_name="Hornady A-Max 168gr N150 40gn"
+drag_function=1
+bc=0.345
+bullet_weight=180.0000
+init_velocity=330.33
+sight_height=75.0000
+zeroing_distance=24.000
+reticle_offset_x=-23
+reticle_offset_y=23
+msp_acc_border_value=5000
+acc_border_up_cross_counter_min=4
+msp_acc_border_up_cross_counter_max=30
+msp_acc_border_down_cross_counter_min=1
+
+[two]
+profile_name="Hornady A-Max 168gr N150 40gn 2"
+drag_function=1
+bc=0.345
+bullet_weight=180.0000
+init_velocity=330.33
+sight_height=75.0000
+zeroing_distance=24.000
+reticle_offset_x=-23
+reticle_offset_y=23
+msp_acc_border_value=5000
+acc_border_up_cross_counter_min=4
+msp_acc_border_up_cross_counter_max=30
+msp_acc_border_down_cross_counter_min=1
+
+[three]
+profile_name="Hornady A-Max 168gr N150 40gn 3"
+drag_function=1
+bc=0.345
+bullet_weight=180.0000
+init_velocity=330.33
+sight_height=75.0000
+zeroing_distance=24.000
+reticle_offset_x=-23
+reticle_offset_y=23
+msp_acc_border_value=5000
+acc_border_up_cross_counter_min=4
+msp_acc_border_up_cross_counter_max=30
+msp_acc_border_down_cross_counter_min=1
+
+[four]
+profile_name="Hornady A-Max 168gr N150 40gn 4"
+drag_function=1
+bc=0.345
+bullet_weight=180.0000
+init_velocity=330.33
+sight_height=75.0000
+zeroing_distance=24.000
+reticle_offset_x=-23
+reticle_offset_y=23
+msp_acc_border_value=5000
+acc_border_up_cross_counter_min=4
+msp_acc_border_up_cross_counter_max=30
+msp_acc_border_down_cross_counter_min=1
+
+[five]
+profile_name="Hornady A-Max 168gr N150 40gn 5"
+drag_function=1
+bc=0.345
+bullet_weight=180.0000
+init_velocity=330.33
+sight_height=75.0000
+zeroing_distance=24.000
+reticle_offset_x=-23
+reticle_offset_y=23
+msp_acc_border_value=5000
+acc_border_up_cross_counter_min=4
+msp_acc_border_up_cross_counter_max=30
+msp_acc_border_down_cross_counter_min=1
+
+[six]
+profile_name="Hornady A-Max 168gr N150 40gn 6"
+drag_function=1
+bc=0.345
+bullet_weight=180.0000
+init_velocity=330.33
+sight_height=75.0000
+zeroing_distance=24.000
+reticle_offset_x=-23
+reticle_offset_y=23
+msp_acc_border_value=5000
+acc_border_up_cross_counter_min=4
+msp_acc_border_up_cross_counter_max=30
+msp_acc_border_down_cross_counter_min=1
