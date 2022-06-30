@@ -38,16 +38,21 @@ func main() {
 		log.Fatalln(err)
 	}
 
+	convertSpecialChars(&tomlSettings)
+
+	// profiles.xml file requires meters/second
 	if tomlSettings.VelocityFps == true {
-		convertFPS(&tomlSettings)
+		convertFPStoMS(&tomlSettings)
 	}
 
+	// profiles.xml file requires mm
 	if tomlSettings.SightHeightIn == true {
-		convertInches(&tomlSettings)
+		convertInchesToMM(&tomlSettings)
 	}
 
+	// profiles.xml file requires meters
 	if tomlSettings.ZeroDistanceYds == true {
-		convertYards(&tomlSettings)
+		convertYardsToMeters(&tomlSettings)
 	}
 
 	t, err := template.New("xml").Parse(XMLTemplate)
@@ -86,7 +91,33 @@ func main() {
 
 }
 
-func convertYards(settings *TOMLSettings) {
+/*
+Replaces special characters in profile names with equivalent XML entities
+&amp;  - The ampersand character (&) starts entity markup (the first character of a character entity reference).
+&lt;   - The less-than character (<) starts element markup (the first character of a start-tag or an end-tag).
+&gt;   - The greater-than character (>) ends a start-tag or an end-tag.
+&quot; - The double-quote character (") can be symbolised with this character entity reference when you need to embed a double-quote inside a string which is already double-quoted.
+&apos; - The apostrophe or single-quote character (') can be symbolised with this character entity reference when you need to embed a single-quote or apostrophe inside a string which is already single-quoted.
+*/
+func convertSpecialChars(settings *TOMLSettings) {
+	settings.One.ProfileName = replaceChars(settings.One.ProfileName)
+	settings.Two.ProfileName = replaceChars(settings.Two.ProfileName)
+	settings.Three.ProfileName = replaceChars(settings.Three.ProfileName)
+	settings.Four.ProfileName = replaceChars(settings.Four.ProfileName)
+	settings.Five.ProfileName = replaceChars(settings.Five.ProfileName)
+	settings.Six.ProfileName = replaceChars(settings.Six.ProfileName)
+}
+
+func replaceChars(profileName string) string {
+	profileName = strings.ReplaceAll(profileName, "&", "&amp;")
+	profileName = strings.ReplaceAll(profileName, "<", "&lt;")
+	profileName = strings.ReplaceAll(profileName, ">", "&gt;")
+	profileName = strings.ReplaceAll(profileName, "\"", "&quot;")
+	profileName = strings.ReplaceAll(profileName, "'", "&apos;")
+	return profileName
+}
+
+func convertYardsToMeters(settings *TOMLSettings) {
 	yards := settings.One.ZeroingDistance
 	settings.One.ZeroingDistance = yards * 0.9144
 	yards = settings.Two.ZeroingDistance
@@ -101,7 +132,7 @@ func convertYards(settings *TOMLSettings) {
 	settings.Six.ZeroingDistance = yards * 0.9144
 }
 
-func convertInches(settings *TOMLSettings) {
+func convertInchesToMM(settings *TOMLSettings) {
 	inches := settings.One.SightHeight
 	settings.One.SightHeight = inches * 25.4
 	inches = settings.Two.SightHeight
@@ -116,7 +147,7 @@ func convertInches(settings *TOMLSettings) {
 	settings.Six.SightHeight = inches * 25.4
 }
 
-func convertFPS(settings *TOMLSettings) {
+func convertFPStoMS(settings *TOMLSettings) {
 	fps := settings.One.InitVelocity
 	settings.One.InitVelocity = fps / 3.28084
 	fps = settings.Two.InitVelocity

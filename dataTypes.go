@@ -1,99 +1,31 @@
 package main
 
+type Profile struct {
+	ProfileName                     string  `toml:"profile_name"`
+	DragFunction                    int     `toml:"drag_function"`
+	Bc                              float64 `toml:"bc"`
+	BulletWeight                    float64 `toml:"bullet_weight"`
+	InitVelocity                    float64 `toml:"init_velocity"`
+	SightHeight                     float64 `toml:"sight_height"`
+	ZeroingDistance                 float64 `toml:"zeroing_distance"`
+	ReticleOffsetX                  int     `toml:"reticle_offset_x"`
+	ReticleOffsetY                  int     `toml:"reticle_offset_y"`
+	MspAccBorderValue               int     `toml:"msp_acc_border_value"`
+	AccBorderUpCrossCounterMin      int     `toml:"acc_border_up_cross_counter_min"`
+	MspAccBorderUpCrossCounterMax   int     `toml:"msp_acc_border_up_cross_counter_max"`
+	MspAccBorderDownCrossCounterMin int     `toml:"msp_acc_border_down_cross_counter_min"`
+}
+
 type TOMLSettings struct {
-	SightHeightIn   bool `toml:"sight_height_in"`
-	VelocityFps     bool `toml:"velocity_fps"`
-	ZeroDistanceYds bool `toml:"zero_distance_yds"`
-	One struct {
-		ProfileName                     string  `toml:"profile_name"`
-		DragFunction                    int     `toml:"drag_function"`
-		Bc                              float64 `toml:"bc"`
-		BulletWeight                    float64 `toml:"bullet_weight"`
-		InitVelocity                    float64 `toml:"init_velocity"`
-		SightHeight                     float64 `toml:"sight_height"`
-		ZeroingDistance                 float64 `toml:"zeroing_distance"`
-		ReticleOffsetX                  int     `toml:"reticle_offset_x"`
-		ReticleOffsetY                  int     `toml:"reticle_offset_y"`
-		MspAccBorderValue               int     `toml:"msp_acc_border_value"`
-		AccBorderUpCrossCounterMin      int     `toml:"acc_border_up_cross_counter_min"`
-		MspAccBorderUpCrossCounterMax   int     `toml:"msp_acc_border_up_cross_counter_max"`
-		MspAccBorderDownCrossCounterMin int     `toml:"msp_acc_border_down_cross_counter_min"`
-	} `toml:"one"`
-	Two struct {
-		ProfileName                     string  `toml:"profile_name"`
-		DragFunction                    int     `toml:"drag_function"`
-		Bc                              float64 `toml:"bc"`
-		BulletWeight                    float64 `toml:"bullet_weight"`
-		InitVelocity                    float64 `toml:"init_velocity"`
-		SightHeight                     float64 `toml:"sight_height"`
-		ZeroingDistance                 float64 `toml:"zeroing_distance"`
-		ReticleOffsetX                  int     `toml:"reticle_offset_x"`
-		ReticleOffsetY                  int     `toml:"reticle_offset_y"`
-		MspAccBorderValue               int     `toml:"msp_acc_border_value"`
-		AccBorderUpCrossCounterMin      int     `toml:"acc_border_up_cross_counter_min"`
-		MspAccBorderUpCrossCounterMax   int     `toml:"msp_acc_border_up_cross_counter_max"`
-		MspAccBorderDownCrossCounterMin int     `toml:"msp_acc_border_down_cross_counter_min"`
-	} `toml:"two"`
-	Three struct {
-		ProfileName                     string  `toml:"profile_name"`
-		DragFunction                    int     `toml:"drag_function"`
-		Bc                              float64 `toml:"bc"`
-		BulletWeight                    float64 `toml:"bullet_weight"`
-		InitVelocity                    float64 `toml:"init_velocity"`
-		SightHeight                     float64 `toml:"sight_height"`
-		ZeroingDistance                 float64 `toml:"zeroing_distance"`
-		ReticleOffsetX                  int     `toml:"reticle_offset_x"`
-		ReticleOffsetY                  int     `toml:"reticle_offset_y"`
-		MspAccBorderValue               int     `toml:"msp_acc_border_value"`
-		AccBorderUpCrossCounterMin      int     `toml:"acc_border_up_cross_counter_min"`
-		MspAccBorderUpCrossCounterMax   int     `toml:"msp_acc_border_up_cross_counter_max"`
-		MspAccBorderDownCrossCounterMin int     `toml:"msp_acc_border_down_cross_counter_min"`
-	} `toml:"three"`
-	Four struct {
-		ProfileName                     string  `toml:"profile_name"`
-		DragFunction                    int     `toml:"drag_function"`
-		Bc                              float64 `toml:"bc"`
-		BulletWeight                    float64 `toml:"bullet_weight"`
-		InitVelocity                    float64 `toml:"init_velocity"`
-		SightHeight                     float64 `toml:"sight_height"`
-		ZeroingDistance                 float64 `toml:"zeroing_distance"`
-		ReticleOffsetX                  int     `toml:"reticle_offset_x"`
-		ReticleOffsetY                  int     `toml:"reticle_offset_y"`
-		MspAccBorderValue               int     `toml:"msp_acc_border_value"`
-		AccBorderUpCrossCounterMin      int     `toml:"acc_border_up_cross_counter_min"`
-		MspAccBorderUpCrossCounterMax   int     `toml:"msp_acc_border_up_cross_counter_max"`
-		MspAccBorderDownCrossCounterMin int     `toml:"msp_acc_border_down_cross_counter_min"`
-	} `toml:"four"`
-	Five struct {
-		ProfileName                     string  `toml:"profile_name"`
-		DragFunction                    int     `toml:"drag_function"`
-		Bc                              float64 `toml:"bc"`
-		BulletWeight                    float64 `toml:"bullet_weight"`
-		InitVelocity                    float64 `toml:"init_velocity"`
-		SightHeight                     float64 `toml:"sight_height"`
-		ZeroingDistance                 float64 `toml:"zeroing_distance"`
-		ReticleOffsetX                  int     `toml:"reticle_offset_x"`
-		ReticleOffsetY                  int     `toml:"reticle_offset_y"`
-		MspAccBorderValue               int     `toml:"msp_acc_border_value"`
-		AccBorderUpCrossCounterMin      int     `toml:"acc_border_up_cross_counter_min"`
-		MspAccBorderUpCrossCounterMax   int     `toml:"msp_acc_border_up_cross_counter_max"`
-		MspAccBorderDownCrossCounterMin int     `toml:"msp_acc_border_down_cross_counter_min"`
-	} `toml:"five"`
-	Six struct {
-		ProfileName                     string  `toml:"profile_name"`
-		DragFunction                    int     `toml:"drag_function"`
-		Bc                              float64 `toml:"bc"`
-		BulletWeight                    float64 `toml:"bullet_weight"`
-		InitVelocity                    float64 `toml:"init_velocity"`
-		SightHeight                     float64 `toml:"sight_height"`
-		ZeroingDistance                 float64 `toml:"zeroing_distance"`
-		ReticleOffsetX                  int     `toml:"reticle_offset_x"`
-		ReticleOffsetY                  int     `toml:"reticle_offset_y"`
-		MspAccBorderValue               int     `toml:"msp_acc_border_value"`
-		AccBorderUpCrossCounterMin      int     `toml:"acc_border_up_cross_counter_min"`
-		MspAccBorderUpCrossCounterMax   int     `toml:"msp_acc_border_up_cross_counter_max"`
-		MspAccBorderDownCrossCounterMin int     `toml:"msp_acc_border_down_cross_counter_min"`
-	} `toml:"six"`
+	SightHeightIn   bool    `toml:"sight_height_in"`
+	VelocityFps     bool    `toml:"velocity_fps"`
+	ZeroDistanceYds bool    `toml:"zero_distance_yds"`
+	One             Profile `toml:"one"`
+	Two             Profile `toml:"two"`
+	Three           Profile `toml:"three"`
+	Four            Profile `toml:"four"`
+	Five            Profile `toml:"five"`
+	Six             Profile `toml:"six"`
 }
 
 var XMLTemplate = `
