@@ -1,0 +1,70 @@
+sight_height_in = true     # profiles.xml default is mm
+velocity_fps = true        # profiles.xml default is m/s
+zero_distance_yds = true   # profiles.xml default is meters
+
+[one]
+profile_name = "A: JSB Knockout Slug"
+drag_function = 1
+bc = 0.092
+bullet_weight = 33.49
+init_velocity = 961.0
+sight_height = 2.9999999999999996
+zeroing_distance = 22.49993214
+reticle_offset_x = -64
+reticle_offset_y = 59
+
+[two]
+profile_name = "A: JSB King Heavy"
+drag_function = 1
+bc = 0.046
+bullet_weight = 33.95
+init_velocity = 968.0
+sight_height = 2.9999999999999996
+zeroing_distance = 22.49993214
+reticle_offset_x = -40
+reticle_offset_y = 48
+
+[three]
+profile_name = "A: JSB Polymag"
+drag_function = 1
+bc = 0.025
+bullet_weight = 26.0
+init_velocity = 1056.0
+sight_height = 2.9999999999999996
+zeroing_distance = 22.49993214
+reticle_offset_x = -55
+reticle_offset_y = 69
+
+[four]
+profile_name = "A: FX Pellets"
+drag_function = 1
+bc = 0.038
+bullet_weight = 25.4
+init_velocity = 1056.0
+sight_height = 2.9999999999999996
+zeroing_distance = 22.49993214
+reticle_offset_x = -55
+reticle_offset_y = 69
+
+[five]
+profile_name = "F: Hornady 130 SP"
+drag_function = 1
+bc = 0.295
+bullet_weight = 130.0
+init_velocity = 2858.0
+sight_height = 2.5
+zeroing_distance = 22.49993214
+reticle_offset_x = -54
+reticle_offset_y = 229
+
+[six]
+profile_name = "F: Hornady 180 SST"
+drag_function = 1
+bc = 0.48
+bullet_weight = 180.0
+init_velocity = 2443.0
+sight_height = 2.5
+zeroing_distance = 22.49993214
+reticle_offset_x = -54
+reticle_offset_y = 229
+

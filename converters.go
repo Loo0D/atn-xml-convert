@@ -10,6 +10,7 @@ Replaces special characters in profile names with equivalent XML entities
 &quot; - The double-quote character (") can be symbolised with this character entity reference when you need to embed a double-quote inside a string which is already double-quoted.
 &apos; - The apostrophe or single-quote character (') can be symbolised with this character entity reference when you need to embed a single-quote or apostrophe inside a string which is already single-quoted.
 */
+
 func convertSpecialChars(settings *TOMLSettings) {
 	settings.One.ProfileName = replaceChars(settings.One.ProfileName)
 	settings.Two.ProfileName = replaceChars(settings.Two.ProfileName)

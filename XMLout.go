@@ -46,6 +46,8 @@ func tomlToXml(tomlFile *string, profilesFile *string) {
 		convertYardsToMeters(&tomlSettings)
 	}
 
+	insertDefaultsIfEmpty(&tomlSettings)
+
 	t, err := template.New("xml").Parse(XMLTemplate)
 	if err != nil {
 		log.Fatalln(err)
@@ -79,4 +81,110 @@ func tomlToXml(tomlFile *string, profilesFile *string) {
 	if err != nil {
 		log.Fatalln(err)
 	}
+}
+
+// If "unknown" settings are not present, insert defaults
+func insertDefaultsIfEmpty(t *TOMLSettings) {
+
+	var msp_acc_border_value = 5000
+	var acc_border_up_cross_counter_min = 4
+	var msp_acc_border_up_cross_counter_max = 30
+	var msp_acc_border_down_cross_counter_min = 1
+
+	if t.One.MspAccBorderValue == 0 {
+		t.One.MspAccBorderValue = msp_acc_border_value
+	}
+
+	if t.One.AccBorderUpCrossCounterMin == 0 {
+		t.One.AccBorderUpCrossCounterMin = acc_border_up_cross_counter_min
+	}
+
+	if t.One.MspAccBorderUpCrossCounterMax == 0 {
+		t.One.MspAccBorderUpCrossCounterMax = msp_acc_border_up_cross_counter_max
+	}
+
+	if t.One.MspAccBorderDownCrossCounterMin == 0 {
+		t.One.MspAccBorderDownCrossCounterMin = msp_acc_border_down_cross_counter_min
+	}
+
+	if t.Two.MspAccBorderValue == 0 {
+		t.Two.MspAccBorderValue = msp_acc_border_value
+	}
+
+	if t.Two.AccBorderUpCrossCounterMin == 0 {
+		t.Two.AccBorderUpCrossCounterMin = acc_border_up_cross_counter_min
+	}
+
+	if t.Two.MspAccBorderUpCrossCounterMax == 0 {
+		t.Two.MspAccBorderUpCrossCounterMax = msp_acc_border_up_cross_counter_max
+	}
+
+	if t.Two.MspAccBorderDownCrossCounterMin == 0 {
+		t.Two.MspAccBorderDownCrossCounterMin = msp_acc_border_down_cross_counter_min
+	}
+
+	if t.Three.MspAccBorderValue == 0 {
+		t.Three.MspAccBorderValue = msp_acc_border_value
+	}
+
+	if t.Three.AccBorderUpCrossCounterMin == 0 {
+		t.Three.AccBorderUpCrossCounterMin = acc_border_up_cross_counter_min
+	}
+
+	if t.Three.MspAccBorderUpCrossCounterMax == 0 {
+		t.Three.MspAccBorderUpCrossCounterMax = msp_acc_border_up_cross_counter_max
+	}
+
+	if t.Three.MspAccBorderDownCrossCounterMin == 0 {
+		t.Three.MspAccBorderDownCrossCounterMin = msp_acc_border_down_cross_counter_min
+	}
+
+	if t.Four.MspAccBorderValue == 0 {
+		t.Four.MspAccBorderValue = msp_acc_border_value
+	}
+
+	if t.Four.AccBorderUpCrossCounterMin == 0 {
+		t.Four.AccBorderUpCrossCounterMin = acc_border_up_cross_counter_min
+	}
+
+	if t.Four.MspAccBorderUpCrossCounterMax == 0 {
+		t.Four.MspAccBorderUpCrossCounterMax = msp_acc_border_up_cross_counter_max
+	}
+
+	if t.Four.MspAccBorderDownCrossCounterMin == 0 {
+		t.Four.MspAccBorderDownCrossCounterMin = msp_acc_border_down_cross_counter_min
+	}
+
+	if t.Five.MspAccBorderValue == 0 {
+		t.Five.MspAccBorderValue = msp_acc_border_value
+	}
+
+	if t.Five.AccBorderUpCrossCounterMin == 0 {
+		t.Five.AccBorderUpCrossCounterMin = acc_border_up_cross_counter_min
+	}
+
+	if t.Five.MspAccBorderUpCrossCounterMax == 0 {
+		t.Five.MspAccBorderUpCrossCounterMax = msp_acc_border_up_cross_counter_max
+	}
+
+	if t.Five.MspAccBorderDownCrossCounterMin == 0 {
+		t.Five.MspAccBorderDownCrossCounterMin = msp_acc_border_down_cross_counter_min
+	}
+
+	if t.Six.MspAccBorderValue == 0 {
+		t.Six.MspAccBorderValue = msp_acc_border_value
+	}
+
+	if t.Six.AccBorderUpCrossCounterMin == 0 {
+		t.Six.AccBorderUpCrossCounterMin = acc_border_up_cross_counter_min
+	}
+
+	if t.Six.MspAccBorderUpCrossCounterMax == 0 {
+		t.Six.MspAccBorderUpCrossCounterMax = msp_acc_border_up_cross_counter_max
+	}
+
+	if t.Six.MspAccBorderDownCrossCounterMin == 0 {
+		t.Six.MspAccBorderDownCrossCounterMin = msp_acc_border_down_cross_counter_min
+	}
+
 }

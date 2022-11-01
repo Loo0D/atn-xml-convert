@@ -2,7 +2,45 @@
 
 Convert TOML ballistic settings file to `profiles.xml` for ATN X-Sight 4K Scope.
 
-**NOTE: the new version changed flags to `-t` for input TOML file and added `-x` for input XML file.**
+## Update
+
+1) Convert profiles.xml file from the scope into a TOML file
+2) The new version changed flags to `-t` for input TOML file and added `-x` for input XML file
+3) You may now omit "unknown" settings in your TOML file, and they will be set to default values so your TOML file can be a bit cleaner:
+
+Old:
+```toml
+[one]
+  profile_name = "F: Hornady 180 SST"
+  drag_function = 1
+  bc = 0.48
+  bullet_weight = 180.0
+  init_velocity = 2443.0
+  sight_height = 2.5
+  zeroing_distance = 70.5
+  reticle_offset_x = -54
+  reticle_offset_y = 229
+  msp_acc_border_value = 5000               # Don't know what 
+  acc_border_up_cross_counter_min = 4       # these do  
+  msp_acc_border_up_cross_counter_max = 30  # but they don't
+  msp_acc_border_down_cross_counter_min = 1 # seem to change
+```
+
+New:
+```toml
+[one]
+profile_name = "F: Hornady 180 SST"
+drag_function = 1
+bc = 0.48
+bullet_weight = 180.0
+init_velocity = 2443.0
+sight_height = 2.5
+zeroing_distance = 70.5
+reticle_offset_x = -54
+reticle_offset_y = 229
+```
+
+See "Unknown Settings" below for more info.
 
 ## Why
 
@@ -10,9 +48,9 @@ Manually editing `profiles.xml` files exported by ATN X-Sight 4K Scope is [painf
 
 Since ATN only allows you to keep 6 profiles loaded in the scope at a time, if you reload for several calibers, you soon end up having to manage several profile files. Keeping them updated by importing them into the scope and editing there via the menu is a hassle.
 
-But what of the Obsidian app from ATN you say? The app has a serious problem - it aggressively rounds up values you enter. For example, a flathead air rifle pellet has a BC of 0.0250. Entered in the app, it rounds it up to 0.1 and you will get a very wrong ballistic calculation.
+But what of the Obsidian app from ATN you say? The app has a serious problem - it aggressively rounds up values you enter. For example, a flathead air rifle pellet has a BC of 0.0250. Entered in the app, it rounds it up to 0.1 and you could get a very wrong ballistic calculation.
 
-A solution I wanted was a simple text format for my ballistic settings that I could keep together with my reloading data, check into version control and be able to quickly get it uploaded to the scope. I also added a feature which converts profiles.xml file from the scope into a TOML file.
+A solution I wanted was a simple text format for my ballistic settings that I could keep together with my reloading data, check into version control and be able to quickly get it uploaded to the scope. 
 
 ## What
 
@@ -52,7 +90,7 @@ or
 ./atn-xml-convert -x profiles.xml -o ~/Desktop/mySettings.toml
 ```
 
-**WARNING** : by default, the TOML file will have units as they are in the "raw" profiles.xml file, which is to say metric. If you want your converted TOML file to have imperial units, set the appropriate flags: `-yards` (zero distance) and/or `-fps` (muzzle velocity) and/or `-inches` (sight height) as follows:
+**NOTE** : by default, the TOML file will have units as they are in the "raw" profiles.xml file, which is to say metric. If you want your converted TOML file to have imperial units, set the appropriate flags: `-yards` (zero distance) and/or `-fps` (muzzle velocity) and/or `-inches` (sight height) as follows:
 
 ```shell
 ./atn-xml-convert -x profiles.xml -o ~/Desktop/profiles.toml -yards -fps -inches # everything is in imperial units
